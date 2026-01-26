@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE BUILT XI - Presented by Studio Materium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            --primary-navy: #181d50;    /* Deep Navy Background */
+            --highlight-blue: #42a5f5;  /* "BUILT" Blue */
+            --tennis-green: #d4e157;    /* Accent Green */
+            --alert-red: #ff5252;       /* Urgency Color */
+            --white: #ffffff;
+            --text-gray: #cfd8dc;
+            
+            --font-head: 'Oswald', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--primary-navy);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; transition: 0.3s; color: inherit; }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-blue { color: var(--highlight-blue); }
+        .text-green { color: var(--tennis-green); }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            font-family: var(--font-head);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border: none;
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--highlight-blue);
+            color: var(--primary-navy);
+        }
+        .btn-primary:hover { background-color: var(--white); transform: translateX(5px); }
+
+        .btn-green {
+            background-color: var(--tennis-green);
+            color: var(--primary-navy);
+        }
+        .btn-green:hover { background-color: var(--white); transform: translateX(5px); }
+
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(24, 29, 80, 0.95);
+            border-bottom: 1px solid rgba(66, 165, 245, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 100px;
+            background: radial-gradient(circle at center, #232b6e 0%, #181d50 100%);
+        }
+
+        .presenter {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-gray);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .hero h1 {
+            font-family: var(--font-head);
+            font-size: 5rem;
+            line-height: 1;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-family: var(--font-head);
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: var(--tennis-green);
+            margin-bottom: 30px;
+        }
+
+        /* Date Cards */
+        .date-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .date-card {
+            border: 1px solid var(--highlight-blue);
+            padding: 15px 25px;
+            background: rgba(0,0,0,0.2);
+        }
+        
+        .date-card strong { display: block; font-size: 1.5rem; font-family: var(--font-head); color: var(--white); }
+        .date-card span { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--highlight-blue); }
+
+        /* --- OWNERSHIP SECTION --- */
+        .ownership-section {
+            padding: 80px 0;
+            background-color: #12163f;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: var(--font-head);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .announcement-badge {
+            background-color: var(--alert-red);
+            color: white;
+            padding: 5px 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-bottom: 3px solid var(--tennis-green);
+        }
+        .benefit-card h3 { font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 10px; color: var(--white); }
+        .benefit-card p { color: var(--text-gray); font-size: 0.9rem; }
+
+        /* --- PLAYER REGISTRATION (Important) --- */
+        .player-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(24, 29, 80, 0.9), rgba(24, 29, 80, 0.9)), url('https://images.unsplash.com/photo-1531415074984-61437266b9af?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .limit-alert {
+            font-size: 1.2rem;
+            color: var(--tennis-green);
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- CONTACT --- */
+        .contact-section {
+            padding: 50px 0;
+            text-align: center;
+            background: #0d102b;
+        }
+        
+        .contact-btn {
+            border: 2px solid var(--white);
+            padding: 10px 30px;
+            color: var(--white);
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .tagline { font-size: 1.2rem; }
+            .date-container { flex-direction: column; align-items: center; }
+            .date-card { width: 100%; max-width: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">THE <span class="text-blue">BUILT</span> XI</div>
+            <a href="https://forms.gle/TTHvM7ejCbjUjdxk7" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.8rem; margin:0;">Register</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <span class="presenter">Studio Materium Presents</span>
+            <h1>THE <span class="text-blue">BUILT</span> XI</h1>
+            <p class="tagline">WHERE PLAN MEETS PITCHES</p>
+            
+            <div class="date-container">
+                <div class="date-card">
+                    <span>Auction Night</span>
+                    <strong>28th FEB</strong>
+                </div>
+                <div class="date-card" style="border-color: var(--tennis-green);">
+                    <span>Match Days</span>
+                    <strong>21st & 22nd MAR</strong>
+                </div>
+            </div>
+
+            <p style="margin-bottom: 20px; font-size: 1.1rem;">The Pitch Is Calling. Don't Wait For The Last Over!</p>
+            
+            <a href="https://forms.gle/TTHvM7ejCbjUjdxk7" target="_blank" class="btn btn-primary">Join as Player 🏏</a>
+            <br>
+            <span style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px; display: block;">Limited to 75 Players Only</span>
+        </div>
+    </section>
+
+    <section class="ownership-section">
+        <div class="container">
+            <span class="announcement-badge">Big Announcement</span>
+            <h2 class="section-title">OWN A TEAM 🏆</h2>
+            <p style="max-width: 700px; margin: 0 auto 30px; opacity: 0.9;">
+                This is your chance to lead from the front. Secure your spot strictly on a <strong>First Come First Served Basis</strong>.
+            </p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Team Ownership</h3>
+                    <p>Get the bragging rights and lead your squad to glory.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Brand Visibility</h3>
+                    <p>Put your brand on the jerseys and boundaries.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Product Display</h3>
+                    <p>Showcase your products directly to the audience.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px;">
+                <p style="margin-bottom: 20px; font-weight: bold;">Interested in Sponsorship or Ownership?</p>
+                <a href="mailto:organizers@studiomaterium.com" class="btn btn-green">Contact Organizers</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="player-section">
+        <div class="container">
+            <h2 class="section-title">PLAYERS, STEP UP! 🏃‍♂️💨</h2>
+            <span class="limit-alert">⚠️ Limited to 75 Players Only</span>
+            <p style="margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Whether you want the glory or the game, fill out the form immediately. Slots are filling fast!
+            </p>
+            <a href="https://forms.gle/TTHvM7ejCbjUjdxk7" target="_blank" class="btn btn-primary">Fill Registration Form</a>
+        </div>
+    </section>
+
+    <footer class="contact-section">
+        <div class="container">
+            <p style="opacity: 0.5; margin-bottom: 10px;">STUDIO MATERIUM PRESENTS</p>
+            <h3>THE <span class="text-blue">BUILT</span> XI</h3>
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">
+                Auction: 28th Feb | Matches: 21-22 March
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
