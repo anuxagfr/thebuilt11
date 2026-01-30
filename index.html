@@ -68,6 +68,20 @@
         }
         .btn-green:hover { background-color: var(--white); transform: translateX(5px); }
 
+        /* --- WHATSAPP BUTTON --- */
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: var(--white);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateX(5px);
+        }
+
         /* --- NAVIGATION --- */
         nav {
             padding: 20px 0;
@@ -186,6 +200,41 @@
         .benefit-card h3 { font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 10px; color: var(--white); }
         .benefit-card p { color: var(--text-gray); font-size: 0.9rem; }
 
+        /* --- GALLERY SECTION (Images) --- */
+        .gallery-section {
+            padding: 60px 0;
+            background-color: #0f1330;
+            text-align: center;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+            border: 1px solid rgba(66, 165, 245, 0.2);
+            border-radius: 4px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            opacity: 0.8;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
         /* --- PLAYER REGISTRATION (Important) --- */
         .player-section {
             padding: 80px 0;
@@ -222,6 +271,53 @@
             margin-top: 20px;
         }
 
+        .phone-link {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 15px;
+            color: var(--highlight-blue);
+            font-family: var(--font-head);
+            font-size: 1.2rem;
+            border: 1px solid rgba(66, 165, 245, 0.3);
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+        .phone-link:hover {
+            background: rgba(66, 165, 245, 0.1);
+        }
+
+        /* --- SHAKUNTLAM SECTION --- */
+        .shakuntlam-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0d102b 0%, #1a237e 100%); /* Deep luxury gradient */
+            text-align: center;
+            border-top: 1px solid rgba(66, 165, 245, 0.2);
+            border-bottom: 1px solid rgba(66, 165, 245, 0.2);
+        }
+        
+        .shakuntlam-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-row {
+            font-family: var(--font-head);
+            color: var(--tennis-green);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .services-row span {
+            border: 1px solid var(--tennis-green);
+            padding: 8px 20px;
+        }
+
         /* --- MOBILE --- */
         @media (max-width: 768px) {
             .hero h1 { font-size: 3.5rem; }
@@ -253,7 +349,7 @@
                 </div>
                 <div class="date-card" style="border-color: var(--tennis-green);">
                     <span>Match Days</span>
-                    <strong>22st & 23nd MAR</strong>
+                    <strong>22nd & 23rd MAR</strong>
                 </div>
             </div>
 
@@ -287,13 +383,59 @@
                     <p>Showcase your products directly to the audience.</p>
                 </div>
             </div>
+            
+            <!-- Removed Contact Organizers Button Block -->
 
-            <div style="margin-top: 50px;">
-                <p style="margin-bottom: 20px; font-weight: bold;">Interested in Sponsorship or Ownership?</p>
-                <a href="mailto:organizers@studiomaterium.com" class="btn btn-green">Contact Organizers</a>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: SHAKUNTLAM COMPANY PROFILE -->
+    <section class="shakuntlam-section">
+        <div class="container">
+            <span class="announcement-badge" style="background-color: var(--white); color: var(--primary-navy);">Powered By</span>
+            <h2 class="section-title">SHAKUNTLAM</h2>
+            <p class="tagline" style="font-size: 1.5rem; color: var(--white); margin-bottom: 20px;">Transform Your Space. Impress Every Gaze.</p>
+            
+            <div class="shakuntlam-content">
+                <p style="margin-bottom: 30px; color: var(--text-gray); font-size: 1.1rem; line-height: 1.6;">
+                    South Delhi's renowned destination for <strong>luxury tiles</strong>, <strong>sanitaryware</strong>, and <strong>modern interiors</strong>. 
+                    With over 5 years of excellence and 1 million+ sq. ft. of tiles delivered, we define elegance for your dream spaces.
+                </p>
+                
+                <div class="services-row">
+                    <span>Luxury Tiles</span>
+                    <span>Sanitaryware</span>
+                    <span>Modern Interiors</span>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <a href="https://www.shakuntlam.info/" target="_blank" class="btn btn-primary">Visit Shakuntlam.info</a>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- NEW SECTION: IMAGES/GALLERY -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">MATCHDAY GLIMPSES 📸</h2>
+            <p style="color: var(--text-gray);">Scenes from our previous showdowns.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1593341646782-e0b495cffd32?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cricket Match Action">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cricket Stadium">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1531415074984-61437266b9af?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Players on field">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REMOVED OPINIONS/TESTIMONIALS SECTION -->
 
     <section class="player-section">
         <div class="container">
@@ -310,8 +452,21 @@
         <div class="container">
             <p style="opacity: 0.5; margin-bottom: 10px;">STUDIO MATERIUM PRESENTS</p>
             <h3>THE <span class="text-blue">BUILT</span> XI</h3>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 20px;">
+                <a href="tel:+919876543210" class="phone-link">📞 +91 98765 43210</a>
+                
+                <a href="https://wa.me/919876543210" target="_blank" class="btn btn-whatsapp">
+                    <!-- Simple SVG WhatsApp Icon -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382C17.112 14.201 15.344 13.333 15.013 13.216C14.682 13.1 14.441 13.333 14.261 13.597C14.081 13.861 13.571 14.461 13.421 14.641C13.271 14.821 13.121 14.851 12.761 14.671C12.401 14.491 11.238 14.111 9.859 12.885C8.798 11.94 8.082 10.772 7.872 10.412C7.662 10.052 7.85 9.858 8.03 9.679C8.191 9.519 8.39 9.263 8.57 9.053C8.75 8.843 8.81 8.693 8.93 8.453C9.05 8.213 8.99 8.003 8.899 7.823C8.809 7.643 8.089 5.871 7.789 5.151C7.497 4.45 7.203 4.545 6.983 4.545C6.78 4.545 6.549 4.536 6.319 4.536C6.089 4.536 5.719 4.622 5.409 4.962C5.099 5.302 4.229 6.113 4.229 7.764C4.229 9.415 5.429 11.006 5.599 11.236C5.769 11.466 7.971 14.861 11.343 16.317C12.145 16.663 12.771 16.87 13.264 17.026C14.075 17.283 14.819 17.246 15.407 17.158C16.059 17.061 17.412 16.339 17.692 15.549C17.972 14.759 17.972 14.079 17.882 13.929C17.792 13.779 17.562 13.699 17.202 13.519H17.472Z"/>
+                    </svg>
+                    Chat on WhatsApp
+                </a>
+            </div>
+
             <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">
-                Auction: 28th Feb | Matches: 21-22 March
+                Auction: 28th Feb | Matches: 22-23 March
             </p>
         </div>
     </footer>
